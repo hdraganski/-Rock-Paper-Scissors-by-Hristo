@@ -13,10 +13,15 @@ while True:
     if command == "Exit":
         break
 
-    player_move = int(command)
-    pc_move = random(1, 3)
+    try:
+        player_move = int(command)
+        print(f"Your choice: {options_dict[player_move]}")
+    except:
+        print("Invalid input!")
+        print("Please select one of the options or type \"Exit\" to end the game:\n1. Rock\n2. Paper\n3. Scissors\n")
+        continue
 
-    print(f"Your choice: {options_dict[player_move]}")
+    pc_move = random(1, 3)
     print(f"Computer's choice: {options_dict[pc_move]}")
     if player_move == pc_move:
         print("It's a draw!")
